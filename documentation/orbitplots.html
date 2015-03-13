@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The orbit plotting module &mdash; PyKEP 1.2.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pykep-styles.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="PyKEP 1.2.2 documentation" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          PyKEP</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.2</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../installation.html">Install</a></li>
+                <li><a href="index.html">Docs</a></li>
+                <li><a href="../examples/index.html">Examples</a></li>
+                <li><a href="../credits.html">Credits</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">The orbit plotting module</a><ul>
+<li><a class="reference internal" href="#detailed-documentation">Detailed Documentation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="the-orbit-plotting-module">
+<span id="orbitplots"></span><h1>The orbit plotting module<a class="headerlink" href="#the-orbit-plotting-module" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="8%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="#PyKEP.orbit_plots.plot_planet" title="PyKEP.orbit_plots.plot_planet"><tt class="xref py py-func docutils literal"><span class="pre">PyKEP.orbit_plots.plot_planet()</span></tt></a></td>
+<td>function</td>
+<td>Plots a planet and its orbit</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#PyKEP.orbit_plots.plot_lambert" title="PyKEP.orbit_plots.plot_lambert"><tt class="xref py py-func docutils literal"><span class="pre">PyKEP.orbit_plots.plot_lambert()</span></tt></a></td>
+<td>function</td>
+<td>Plots a lambert arc (also multirev)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#PyKEP.orbit_plots.plot_kepler" title="PyKEP.orbit_plots.plot_kepler"><tt class="xref py py-func docutils literal"><span class="pre">PyKEP.orbit_plots.plot_kepler()</span></tt></a></td>
+<td>function</td>
+<td>Plots a keplerian propagated arc</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#PyKEP.orbit_plots.plot_taylor" title="PyKEP.orbit_plots.plot_taylor"><tt class="xref py py-func docutils literal"><span class="pre">PyKEP.orbit_plots.plot_taylor()</span></tt></a></td>
+<td>function</td>
+<td>Plots a constant thrust propagated arc</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#PyKEP.orbit_plots.plot_sf_leg" title="PyKEP.orbit_plots.plot_sf_leg"><tt class="xref py py-func docutils literal"><span class="pre">PyKEP.orbit_plots.plot_sf_leg()</span></tt></a></td>
+<td>function</td>
+<td>Plots a Sims_Flanagan leg</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="detailed-documentation">
+<h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyKEP.orbit_plots.plot_planet">
+<tt class="descclassname">PyKEP.orbit_plots.</tt><tt class="descname">plot_planet</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#PyKEP.orbit_plots.plot_planet" title="Permalink to this definition">¶</a></dt>
+<dd><p>ax = plot_planet(plnt, ax = None, t0=&#8217;PyKEP.epoch(0)&#8217;, N=60, units = 1.0, color = &#8216;k&#8217;, s=40, legend = False)</p>
+<ul class="simple">
+<li>ax:        3D axis object created using fig.gca(projection=&#8216;3d&#8217;)</li>
+<li>plnt:      PyKEP.planet object we want to plot</li>
+<li>t0:        PyKEP.epoch object indicating when we want to plot the planet position</li>
+<li>units:     the length unit to be used in the plot</li>
+<li>color:     matplotlib color to use to plot the line</li>
+<li>s:         planet size (pixel^2)</li>
+<li>legend     when True plots the legend with the planet name and the epoch</li>
+</ul>
+<p>Plots the planet position and its orbit</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">pl</span> <span class="o">=</span> <span class="n">planet_ss</span><span class="p">(</span><span class="s">&#39;earth&#39;</span><span class="p">)</span>
+<span class="n">plot_planet</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="PyKEP.orbit_plots.plot_lambert">
+<tt class="descclassname">PyKEP.orbit_plots.</tt><tt class="descname">plot_lambert</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#PyKEP.orbit_plots.plot_lambert" title="Permalink to this definition">¶</a></dt>
+<dd><p>ax = plot_lambert(ax,l, N=60, sol=0, units = &#8216;PyKEP.AU&#8217;, legend = &#8216;False&#8217;)</p>
+<ul>
+<li><p class="first">ax:       3D axis object created using fig.gca(projection=&#8216;3d&#8217;)</p>
+</li>
+<li><p class="first">l:        PyKEP.lambert_problem object</p>
+</li>
+<li><p class="first">N:                number of points to be plotted along one arc</p>
+</li>
+<li><dl class="first docutils">
+<dt>sol:      solution to the Lambert&#8217;s problem we want to plot (must be in 0..Nmax*2)</dt>
+<dd><p class="first last">where Nmax is the maximum number of revolutions for which there exist a solution.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">units:    the length unit to be used in the plot</p>
+</li>
+<li><p class="first">color:    matplotlib color to use to plot the line</p>
+</li>
+<li><p class="first">legend:   when True it plots also the legend with info on the Lambert&#8217;s solution chosen</p>
+</li>
+</ul>
+<p>Plots a particular solution to a Lambert&#8217;s problem</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">(</span><span class="mi">640</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">mjd2000</span> <span class="o">-</span> <span class="n">t1</span><span class="o">.</span><span class="n">mjd2000</span><span class="p">)</span> <span class="o">*</span> <span class="n">DAY2SEC</span>
+
+<span class="n">pl</span> <span class="o">=</span> <span class="n">planet_ss</span><span class="p">(</span><span class="s">&#39;earth&#39;</span><span class="p">)</span>
+<span class="n">plot_planet</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">pl</span><span class="p">,</span> <span class="n">t0</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">rE</span><span class="p">,</span><span class="n">vE</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">eph</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+
+<span class="n">pl</span> <span class="o">=</span> <span class="n">planet_ss</span><span class="p">(</span><span class="s">&#39;mars&#39;</span><span class="p">)</span>
+<span class="n">plot_planet</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">pl</span><span class="p">,</span> <span class="n">t0</span><span class="o">=</span><span class="n">t2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">rM</span><span class="p">,</span> <span class="n">vM</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">eph</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+
+<span class="n">l</span> <span class="o">=</span> <span class="n">lambert_problem</span><span class="p">(</span><span class="n">rE</span><span class="p">,</span><span class="n">rM</span><span class="p">,</span><span class="n">dt</span><span class="p">,</span><span class="n">MU_SUN</span><span class="p">)</span>
+<span class="n">plot_lambert</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">l</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plot_lambert</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">sol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plot_lambert</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">sol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="PyKEP.orbit_plots.plot_kepler">
+<tt class="descclassname">PyKEP.orbit_plots.</tt><tt class="descname">plot_kepler</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#PyKEP.orbit_plots.plot_kepler" title="Permalink to this definition">¶</a></dt>
+<dd><p>ax = plot_kepler(ax,r,v,t,mu, N=60, units = 1, color = &#8216;b&#8217;, legend = False):</p>
+<ul class="simple">
+<li>ax:               3D axis object created using fig.gca(projection=&#8216;3d&#8217;)</li>
+<li>r:                initial position (cartesian coordinates)</li>
+<li>v:                initial velocity (cartesian coordinates)</li>
+<li>t:                propagation time</li>
+<li>mu:               gravitational parameter</li>
+<li>N:                number of points to be plotted along one arc</li>
+<li>units:    the length unit to be used in the plot</li>
+<li>color:    matplotlib color to use to plot the line</li>
+<li>legend    when True it plots also the legend</li>
+</ul>
+<p>Plots the result of a keplerian propagation</p>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="PyKEP.orbit_plots.plot_taylor">
+<tt class="descclassname">PyKEP.orbit_plots.</tt><tt class="descname">plot_taylor</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#PyKEP.orbit_plots.plot_taylor" title="Permalink to this definition">¶</a></dt>
+<dd><p>ax = plot_taylor(ax,r,v,m,u,t,mu, veff, N=60, units = 1, color = &#8216;b&#8217;, legend = False):</p>
+<ul class="simple">
+<li>ax:               3D axis object created using fig.gca(projection=&#8216;3d&#8217;)</li>
+<li>r:                initial position (cartesian coordinates)</li>
+<li>v:                initial velocity (cartesian coordinates)</li>
+<li>m:                initial mass</li>
+<li>u:                cartesian components for the constant thrust</li>
+<li>t:                propagation time</li>
+<li>mu:               gravitational parameter</li>
+<li>veff:     the product Isp * g0</li>
+<li>N:                number of points to be plotted along one arc</li>
+<li>units:    the length unit to be used in the plot</li>
+<li>color:    matplotlib color to use to plot the line</li>
+<li>legend:   when True it plots also the legend</li>
+</ul>
+<p>Plots the result of a taylor propagation of constant thrust</p>
+</dd></dl>
+
+<hr class="docutils" />
+<dl class="function">
+<dt id="PyKEP.orbit_plots.plot_sf_leg">
+<tt class="descclassname">PyKEP.orbit_plots.</tt><tt class="descname">plot_sf_leg</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#PyKEP.orbit_plots.plot_sf_leg" title="Permalink to this definition">¶</a></dt>
+<dd><p>ax = plot_sf_leg(ax, leg, N=5, units=1, color=&#8217;b&#8217;, legend=False, no_trajectory = False):</p>
+<ul class="simple">
+<li>ax:               3D axis object created using fig.gca(projection=&#8216;3d&#8217;)</li>
+<li>leg:      a PyKEP.sims_flanagan.leg</li>
+<li>N:                number of points to be plotted along one arc</li>
+<li>units:    the length unit to be used in the plot</li>
+<li>color:    matplotlib color to use to plot the trajectory and the grid points</li>
+<li>legend    when True it plots also the legend</li>
+<li>plot_line:        when True plots also the trajectory (between mid-points and grid points)</li>
+</ul>
+<p>Plots a Sims-Flanagan leg</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pl</span> <span class="o">=</span> <span class="n">planet_ss</span><span class="p">(</span><span class="s">&#39;earth&#39;</span><span class="p">)</span>
+<span class="n">rE</span><span class="p">,</span><span class="n">vE</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">eph</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="n">plot_planet</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span><span class="n">t0</span><span class="o">=</span><span class="n">t1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">AU</span><span class="p">)</span>
+
+<span class="n">t2</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span>
+<span class="n">pl</span> <span class="o">=</span> <span class="n">planet_ss</span><span class="p">(</span><span class="s">&#39;mars&#39;</span><span class="p">)</span>
+<span class="n">rM</span><span class="p">,</span> <span class="n">vM</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">eph</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">plot_planet</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">pl</span><span class="p">,</span><span class="n">t0</span><span class="o">=</span><span class="n">t2</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">AU</span><span class="p">)</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">sims_flanagan</span><span class="o">.</span><span class="n">spacecraft</span><span class="p">(</span><span class="mi">4500</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">2500</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">sims_flanagan</span><span class="o">.</span><span class="n">sc_state</span><span class="p">(</span><span class="n">rE</span><span class="p">,</span><span class="n">vE</span><span class="p">,</span><span class="n">sc</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+<span class="n">xe</span> <span class="o">=</span> <span class="n">sims_flanagan</span><span class="o">.</span><span class="n">sc_state</span><span class="p">(</span><span class="n">rM</span><span class="p">,</span><span class="n">vM</span><span class="p">,</span><span class="n">sc</span><span class="o">.</span><span class="n">mass</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">sims_flanagan</span><span class="o">.</span><span class="n">leg</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">x0</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">xe</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">MU_SUN</span><span class="p">)</span>
+
+<span class="n">plot_sf_leg</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="n">AU</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015, PyKEP Development Team.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
